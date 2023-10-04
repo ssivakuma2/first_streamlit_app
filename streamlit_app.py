@@ -7,4 +7,4 @@ streamlit.text('🥗 Kale, Spinach and Rocket Smoothie')
 streamlit.text('🐔 Hard boiled free range Egg')
 streamlit.text(' 🥑🍞 Avacado toast')
 
-streamlit.header('Breakfast Favourites')
+streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
