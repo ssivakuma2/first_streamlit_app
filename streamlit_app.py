@@ -48,7 +48,7 @@ add_my_fruit = streamlit.text_input('What fruit would you like to add?','Jackfru
 streamlit.write('Thanks for adding ', add_my_fruit)
 
 
-streamlit.stop()
+#streamlit.stop()
 
 
 #my_cur = my_cnx.cursor()
