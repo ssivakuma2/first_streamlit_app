@@ -23,6 +23,13 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 streamlit.dataframe(fruits_to_show)
 
 
+add_my_fruit = streamlit.text_input('What fruit would you like to add?')
+new_fruit = insert_row_snowflake(add_my_fruit)
+#streamlit.write('Thanks for adding ', add_my_fruit)
+#back_from_function1 = insert_row_snowflake(add_my_fruit)
+#streamlit.dataframe(back_from_function1)
+
+
 #create the repeatable code block(called a function)
 def get_fruityvice_data(this_fruit_choice):
   fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + this_fruit_choice)
@@ -43,23 +50,12 @@ try:
 except URLError as e:
   streamlit.error()
   
-
-add_my_fruit = streamlit.text_input('What fruit would you like to add?')
-streamlit.write('Thanks for adding ', add_my_fruit)
-
-#streamlit.stop()
-
-
-#my_cur = my_cnx.cursor()
-#my_cur.execute("select * from pc_rivery_db.public.fruit_load_list")
-#my_data_rows = my_cur.fetchall()
 streamlit.header("The fruit load list contains:")
 #snowflake related functions
 def get_fruit_load_list():
   with my_cnx.cursor() as my_cur:
     my_cur.execute("select * from pc_rivery_db.public.fruit_load_list")
     return my_cur.fetchall()
-
 
 # Add a button to load the fruit
 if streamlit.button('Get fruit load list'):
@@ -70,6 +66,5 @@ if streamlit.button('Get fruit load list'):
 #Allow end user to add a fruit to the list
 def insert_row_snowflake(new_fruit):
   with my_cnx.cursor() as my_cur:
-    my_cur.execute("insert into PC_RIVERY_DB.PUBLIC.fruit_load_list values('"+ add_my_fruit +"')")
+    my_cur.execute("insert into PC_RIVERY_DB.PUBLIC.fruit_load_list values('"+ new_fruit +"')")
     return "Thanks for adding " + new_fruit
-
