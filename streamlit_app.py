@@ -25,8 +25,8 @@ streamlit.dataframe(fruits_to_show)
 
 
 add_my_fruit = streamlit.text_input('What fruit would you like to add?')
-insert_row_snowflake(add_my_fruit)
-#streamlit.write('Thanks for adding ', add_my_fruit)
+#insert_row_snowflake(add_my_fruit)
+streamlit.write('Thanks for adding ', add_my_fruit)
 #back_from_function1 = insert_row_snowflake(add_my_fruit)
 #streamlit.dataframe(back_from_function1)
 
